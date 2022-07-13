@@ -1,0 +1,170 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ViRa Career Guider App</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: forestgreen;
+            padding: 10px;
+            font-size:40px;
+            width: 500px;
+            box-sizing: border-box;
+            text-align: center;
+            background-position: center;
+
+        }
+        #main {
+            text-align: center;
+            padding-top: 1px;
+        }
+		h2 {
+            margin-bottom: 10px;
+			color: black;
+            padding: 10px;
+            font-size:20px;
+            width: 500px;
+            box-sizing: border-box;
+            text-align: center;
+            background-position: center;
+		}
+        h3{
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size:20px;
+            width: 500px;
+            box-sizing: border-box;
+            text-align: center;
+            background-position: center;
+            color: crimson;
+        }
+        h4{
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size:20px;
+            background: azure;
+            width: 500px;
+            box-sizing: border-box;
+            text-align: center;
+            background-position: center;
+            color: black;
+        }
+		ol li {
+		background: #cce5ff;
+		margin: 5px;
+		}
+
+		input[type='text'] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+
+        }
+
+		.clickbtn {
+			background-color: #04AA6D;
+			color: white;
+			padding: 16px 20px;
+			margin: 8px 0;
+			border: forestgreen;
+			opacity: 0.9;
+            font-style: unset;
+            cursor: pointer;
+		}
+        form {
+            margin-bottom: 20px;
+        }
+
+		.container{
+			padding: 0.1px;
+		}
+		ol{
+		font-size:20px;
+		background: #ff9999;
+		padding: 20px;
+		width: 500px;
+		box-sizing: border-box;
+		text-align: center;
+            position: center;
+		}
+        body{
+            background: lavenderblush;
+        }
+    </style>
+</head>
+
+
+<body>
+<center>
+<div id="main">
+    <h1>Get the Content which striked your mind!!</h1>
+    <form method="GET" autocomplete="off">
+        <div>
+            <label for="cont"></label>
+            <input type="text" id="cont"  placeholder="Type the Content Name" name="cont"/>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+    {% if res %}
+        <h3>{{ res.region }}</h3>
+        <h3><b>ᐁᐁᐁ Click below ᐁᐁᐁ </b>
+        <a  href="{{ res.info }}">{{ res.info }}</a> </h3>
+    {% endif %}
+</div>
+
+    <h1>ViRa CAREER GUIDER</h1>
+	<h2>Here's the content</h2>
+	<div id=content>
+	<ol id=vv>
+		<li>
+		<a href="#">OP Jindal Review- Is this University in India Worthy Enough?</a></li>
+		<li>
+		<a href="#">Most frequently asked  questions about MBA</a></li>
+        <li>
+		<a href="#">12 Short courses on Business at Harvard University </a></li>
+		<li>
+		<a href="#" >Portfolio Building Tips to get Job as a Blogger</a></li>
+		<li>
+		<a href="#">6 Commonly asked Questions in a Content Writing Interview </a></li>
+        <li>
+		<a href="#">How to Start Blogging in 2020 as a Creative Career Option</a></li>
+        <li>
+		<a href="#">How to Make an Honest Impression at Interview</a></li>
+        <li>
+		<a href="#">Importance of Hostel and PG life for Development</a></li>
+		<li>
+		<a href="#">Why You Should Study Abroad in Amsterdam? </a></li>
+        <li>
+        <a href="#">Top 4 Blogging Skills that are required to get Job</a>
+        </li>
+		</ol>
+		<h2 >With just one click grab the information from the official website itself!</h2>
+    <form  method="post" autocomplete="off">
+	{% csrf_token %}
+  <div class="container">
+    <input type="text"  placeholder="Enter the number" name="num" id="num" ><br>
+      </div>
+    <button type="submit" class="clickbtn">Click here</button>
+    </form>
+    {% if result %}
+        <h3> <b>Content {{ result.no }} grabbed is </b></h3>
+        <h4>{{ result.crs_name }}</h4>
+        <h3><b>ᐁᐁᐁ Click below for more info ᐁᐁᐁ </b>
+        <a  href="{{ result.info }}">{{ result.info }}</a> </h3>
+    <h2> Thank you for visiting our website!</h2>
+    {% endif %}
+    </div>
+</center>
+</body>
+</html>
